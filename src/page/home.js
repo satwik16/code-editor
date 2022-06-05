@@ -1,4 +1,4 @@
-import "../app.css";
+
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import toast from "react-hot-toast";

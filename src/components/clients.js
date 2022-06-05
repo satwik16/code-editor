@@ -1,6 +1,6 @@
 import React from 'react'
 import Avatar from 'react-avatar'
-import "../app.css"
+import "./app.css"
 const Clients = ({username}) => {
   return (
     <div className = "client">
