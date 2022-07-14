@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import toast from "react-hot-toast";
 const Editorpage = () => {
+  const copyref = useRef(null);
   const socketref = useRef(null);
   const coderef = useRef(null);
   const location = useLocation();
@@ -76,6 +77,9 @@ const Editorpage = () => {
   }, []);
 
   async function copyroomid() {
+     
+    //  copyref = roomId;
+    //  document.execCommand("copy");
     try {
       await navigator.clipboard.writeText(roomId);
       toast.success(`room id has been copied to your clipboard`);
@@ -107,8 +111,8 @@ const Editorpage = () => {
               ))}
             </div>
           </div>
-          <button className="btn copybtn" onClick={copyroomid}>
-            copy ROOM ID{" "}
+          <button className="btn copybtn" onClick={copyroomid} >
+            copy ROOM ID{" "} 
           </button>
           <button className="btn leavebtn" onClick={leaveroom}>
             LEAVE
