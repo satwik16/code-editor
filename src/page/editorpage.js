@@ -47,7 +47,7 @@ const Editorpage = () => {
         ({ clients, username, socketId }) => {
           if (username !== location.state?.username) {
             toast.success(`${username} joined the room`);
-            console.log(username);
+            
           }
           setclients(clients);
           socketref.current.emit(ACTIONS.SYNC_CODE, {
@@ -76,12 +76,18 @@ const Editorpage = () => {
     };
   }, []);
 
-  async function copyroomid() {
+  async function copyroomid(e) {
      
-    //  copyref = roomId;
+    //  copyref.current.select();
     //  document.execCommand("copy");
+    //  e.target.focus();
+    // navigator.clipboard.writeText(copyref);
+    // console.log(copyref.current.baseURI);
+    // console.log(url);
+    
     try {
-      await navigator.clipboard.writeText(roomId);
+      const url = copyref.current.baseURI.split("/")[4];
+      await navigator.clipboard.writeText(url);
       toast.success(`room id has been copied to your clipboard`);
     } catch (err) {
       toast.error(`could not copy roomId`);
@@ -111,7 +117,7 @@ const Editorpage = () => {
               ))}
             </div>
           </div>
-          <button className="btn copybtn" onClick={copyroomid} >
+          <button className="btn copybtn" onClick={copyroomid} ref ={copyref}>
             copy ROOM ID{" "} 
           </button>
           <button className="btn leavebtn" onClick={leaveroom}>
