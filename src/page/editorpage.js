@@ -77,7 +77,7 @@ const Editorpage = () => {
   }, []);
 
   async function copyroomid(e) {
-     
+    //  e
     //  copyref.current.select();
     //  document.execCommand("copy");
     //  e.target.focus();
